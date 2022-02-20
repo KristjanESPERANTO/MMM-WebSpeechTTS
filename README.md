@@ -35,7 +35,9 @@ A Text-To-Speech module for MagicMirror² which uses the Web Speech API of the b
 
 ## Run it
 
-To use it, you have to three option:
+### with Electron
+
+You have to modify the way you are starting the MagicMirror². You have to two option:
 
 1. Adapt `package.json` of MagicMirror²:
    Add script to package.json:
@@ -43,11 +45,13 @@ To use it, you have to three option:
 
    Start with: `npm run start:tts`
 
-2. Run server mode and use Browser with tts
+2. Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`
 
-3. Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`
+## Server mode
 
-## TODO
+- ToDo: Test with different browsers
+
+## ToDo
 
 - Mention in MMM-Public-TransportHafas that TTS is possible with this module
 - Translations

@@ -1,0 +1,32 @@
+{
+  "name": "mmm-webspeechtts",
+  "version": "0.0.1",
+  "description": "Text-To-Speech module for MagicMirror²",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "text-to-speech"
+  ],
+  "author": "Kristjan ESPERANTO",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/issues"
+  },
+  "homepage": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS#readme",
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.4.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "test": "npm run lint"
+  }
+}

@@ -9,14 +9,15 @@ So far, only German is supported, but other languages are to follow. Support wou
 ## Features
 
 - Greeting with time at the start of the MagicMirror².
-- Read aloud by key:
+- Read aloud by pressing key:
   - Time
   - Departures from MMM-PublicTransportHafas
 
 ## Installation
 
-1. Clone this repo into `~/MagicMirror/modules` directory.
-2. Configure your `~/MagicMirror/config/config.js`:
+1. Clone this module into your MagicMirror² modules folder.
+   `git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/`
+2. Add the configuration of the module to your `config.js`:
 
     ```js
     {

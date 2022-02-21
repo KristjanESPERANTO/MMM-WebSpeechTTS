@@ -1,4 +1,4 @@
-/* global config Module Log */
+/* global Module Log */
 
 Module.register("MMM-WebSpeechTTS", {
   defaults: {

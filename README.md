@@ -29,8 +29,7 @@ So far, only German is supported, but other languages are to follow. Support wou
     },
     ```
 
-3. Run command `npm install` in `~/MagicMirror/modules/MMM-WebSpeechTTS` directory.
-4. Run command `sudo apt-get install espeak-ng speech-dispathcer`.
+3. Run command `sudo apt-get install espeak-ng speech-dispatcher`.
 
 ## Config options
 

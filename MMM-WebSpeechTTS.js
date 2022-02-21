@@ -2,6 +2,9 @@
 
 Module.register("MMM-WebSpeechTTS", {
   defaults: {
+    greetingsAtStartup: true,
+    hidden: true,
+    modules: [],
     text: "WebSpeechTTS"
   },
 
@@ -30,20 +33,24 @@ Module.register("MMM-WebSpeechTTS", {
 
   getDom() {
     const wrapper = document.createElement("div");
-    if (config.logLevel.includes("DEBUG")) {
+    if (this.config.hidden) {
+      wrapper.visibility = "hidden";
+    } else {
       wrapper.id = "mmm-webspeechtts";
       wrapper.innerHTML = this.tts;
-    } else {
-      wrapper.visibility = "hidden";
     }
     return wrapper;
   },
 
   getScripts() {
-    return [
-      this.file("module-scripts/TTS.js"),
-      this.file("module-scripts/MMM-PublicTransportHafas.js")
-    ];
+    const scripts = [];
+    scripts.push(this.file("module-scripts/TTS.js"));
+    if (this.config.greetingsAtStartup)
+      scripts.push(this.file("module-scripts/TTS-GreetingsAtStartup.js"));
+    if (this.config.modules.indexOf("MMM-PublicTransportHafas") > -1)
+      scripts.push(this.file("module-scripts/MMM-PublicTransportHafas.js"));
+
+    return scripts;
   },
 
   getTranslations() {

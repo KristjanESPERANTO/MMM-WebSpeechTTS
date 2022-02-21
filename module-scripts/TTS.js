@@ -1,17 +1,11 @@
-/* eslint-disable no-restricted-syntax */
-/* global config Log getDesparturesString */
+/* eslint-disable no-unused-vars */
+/* global config Log */
 
 // Initialize new SpeechSynthesisUtterance object
 const speech = new SpeechSynthesisUtterance();
 
 // Set speech Language
 speech.lang = config.language;
-
-function getTimeAnnouncementString() {
-  const time = new Date();
-  const timeString = `Es ist ${time.getHours()} Uhr ${time.getMinutes()} .\n`;
-  return timeString;
-}
 
 function speak(text) {
   speechSynthesis.cancel();
@@ -36,20 +30,20 @@ function getGreetingString() {
   return greetingsString;
 }
 
-// TODO: Depending on Config
-if (true) {
-  setTimeout(() => {
-    let firstTextToSpeech = getGreetingString();
-    firstTextToSpeech += getTimeAnnouncementString();
-    speak(firstTextToSpeech);
-  }, 10000);
-
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "d") {
-      speak(`${getTimeAnnouncementString()} - ${getDesparturesString()}`);
-    }
-    if (event.key === "s") {
-      speak("Ansage angehalten");
-    }
-  });
+function getTimeAnnouncementString() {
+  const time = new Date();
+  const timeString = `Es ist ${time.getHours()} Uhr ${time.getMinutes()} .\n`;
+  return timeString;
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "g") {
+    speak(getGreetingString());
+  }
+  if (event.key === "s") {
+    speak("Ansage angehalten");
+  }
+  if (event.key === "t") {
+    speak(getTimeAnnouncementString());
+  }
+});

@@ -1,3 +1,4 @@
+/* global speak getTimeAnnouncementString */
 /* eslint-disable no-unused-vars, no-restricted-syntax */
 function getDesparturesString() {
   let announcementText = "";
@@ -75,3 +76,9 @@ function getDesparturesString() {
   // Start Speaking
   return announcementText;
 }
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "d") {
+    speak(`${getTimeAnnouncementString()} - ${getDesparturesString()}`);
+  }
+});

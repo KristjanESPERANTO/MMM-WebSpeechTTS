@@ -1,13 +1,17 @@
 # MMM-WebSpeechTTS
 
-This module is still under construction and only works partially!
-
 A Text-To-Speech module for MagicMirror² which uses the Web Speech API of the browser.
+
+**This module is still under construction and only works partially!**
+
+So far, only German is supported, but other languages are to follow. Support would be very welcome!
 
 ## Features
 
-- Time
-- Departures from MMM-PublicTransportHafas
+- Greeting with time at the start of the MagicMirror².
+- Read aloud by key:
+  - Time
+  - Departures from MMM-PublicTransportHafas
 
 ## Installation
 
@@ -16,12 +20,13 @@ A Text-To-Speech module for MagicMirror² which uses the Web Speech API of the b
 
     ```js
     {
-        module: 'MMM-WebSpeechTTS',
-        position: 'top_right',
-        config: {
-            ...
-        }
-    }
+      module: "MMM-WebSpeechTTS",
+      position: "top_left",
+      config: {
+        greetingsAtStartup: true,
+        modules: ["MMM-PublicTransportHafas"]
+      }
+    },
     ```
 
 3. Run command `npm install` in `~/MagicMirror/modules/MMM-WebSpeechTTS` directory.
@@ -31,7 +36,19 @@ A Text-To-Speech module for MagicMirror² which uses the Web Speech API of the b
 
 | **Option** | **Default** | **Description** |
 | --- | --- | --- |
-| `text` | `"MMM-WebSpeechTTS"` | Text to display in debug mode, while there's no text to speech. |
+| `greetingsAtStartup` | true | If true, the MagicMirror² will greet you after it has started. |
+| `hidden` | `true` | Set the value to `false` if you want to see the text that is read out on your mirror. |
+| `modules` | `[]` | Array of modules which you wanna use. Till now only "MMM-PublicTransportHafas" is possible. |
+| `text` | `"MMM-WebSpeechTTS"` | Text to display at startup if `hidden:false`. |
+
+## Keyboard control
+
+| **Key** | **Modul** | **Description** |
+| --- | --- | --- |
+| `g` | `built-in` | **G**reeting. |
+| `s` | `built-in` | **S**top the reading. |
+| `t` | `built-in` | Tell the **t**ime. |
+| `d` | `"MMM-WebSpeechTTS"` | Read the **d**epartures. |
 
 ## Run it
 
@@ -55,4 +72,3 @@ You have to modify the way you are starting the MagicMirror². You have to two o
 
 - Mention in MMM-Public-TransportHafas that TTS is possible with this module
 - Translations
-- Keymap

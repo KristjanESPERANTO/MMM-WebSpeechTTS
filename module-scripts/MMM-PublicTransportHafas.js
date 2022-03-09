@@ -19,6 +19,17 @@ function getDesparturesString() {
       thead.remove();
     }
 
+    // Time
+    const departureTimes = pthTable.getElementsByClassName("mmm-pth-time-cell");
+    for (const departureTime of departureTimes) {
+      departureTime.innerText = `${departureTime.innerText.replaceAll(
+        ":",
+        " Uhr "
+      )}`;
+      // Add a gap in case there is a number at the end of the line. This way it is not read out as an ordinal number.
+      departureTime.innerText += " ";
+    }
+
     // Line
     const lines = pthTable.getElementsByClassName("mmm-pth-sign");
     for (const line of lines) {

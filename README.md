@@ -19,36 +19,40 @@ So far, only German is supported, but other languages are to follow. Support wou
    `git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/`
 2. Add the configuration of the module to your `config.js`:
 
-    ```js
-    {
-      module: "MMM-WebSpeechTTS",
-      position: "top_left",
-      config: {
-        greetingsAtStartup: true,
-        modules: ["MMM-PublicTransportHafas"]
-      }
-    },
-    ```
+   ```js
+   {
+     module: "MMM-WebSpeechTTS",
+     position: "top_left",
+     config: {
+       greetingsAtStartup: true,
+       modules: ["MMM-PublicTransportHafas"]
+     }
+   },
+   ```
 
 3. Run command `sudo apt-get install espeak-ng speech-dispatcher`.
 
 ## Config options
 
-| **Option** | **Default** | **Description** |
-| --- | --- | --- |
-| `greetingsAtStartup` | true | If true, the MagicMirror² will greet you after it has started. |
-| `hidden` | `true` | Set the value to `false` if you want to see the text that is read out on your mirror. |
-| `modules` | `[]` | Array of modules which you wanna use. Till now only "MMM-PublicTransportHafas" is possible. |
-| `text` | `"MMM-WebSpeechTTS"` | Text to display at startup if `hidden:false`. |
+<!-- prettier-ignore-start -->
+| **Option**           | **Default** | **Description** |
+| ---                  | ---         | ---             |
+| `greetingsAtStartup` | `true`      | If true, the MagicMirror² will greet you after it has started. |
+| `hidden`             | `true`      | Set the value to `false` if you want to see the text that is read out on your mirror. |
+| `modules`            | `[]`        | Array of modules which you wanna use. Till now only "MMM-PublicTransportHafas" is possible. |
+| `text`               | `"MMM-WebSpeechTTS"` | Text to display at startup if `hidden:false`. |
+<!-- prettier-ignore-end -->
 
 ## Keyboard control
 
-| **Key** | **Modul** | **Description** |
-| --- | --- | --- |
-| `g` | `built-in` | **G**reeting. |
-| `s` | `built-in` | **S**top the reading. |
-| `t` | `built-in` | Tell the **t**ime. |
-| `d` | `"MMM-WebSpeechTTS"` | Read the **d**epartures. |
+<!-- prettier-ignore-start -->
+| **Key** | **Modul**  | **Description**       |
+| ---     | ---        | ---                   |
+| `g`     | `built-in` | **G**reeting.         |
+| `s`     | `built-in` | **S**top the reading. |
+| `t`     | `built-in` | Tell the **t**ime.    |
+| `d`     | `"MMM-WebSpeechTTS"` | Read the **d**epartures. |
+<!-- prettier-ignore-end -->
 
 ## Run it
 

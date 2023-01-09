@@ -58,7 +58,7 @@ So far, only German is supported, but other languages are to follow. Support wou
 
 ### with Electron
 
-You have to modify the way you are starting the MagicMirror². You have to two option:
+You have to modify the way you are starting the MagicMirror². You have three options:
 
 1. Adapt `package.json` of MagicMirror²:
    Add script to package.json:
@@ -67,6 +67,8 @@ You have to modify the way you are starting the MagicMirror². You have to two o
    Start with: `npm run start:tts`
 
 2. Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`
+
+3. Start with: `npm run server` and open MagicMirror in Firefox
 
 ## Server mode
 

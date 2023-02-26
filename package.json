@@ -17,16 +17,16 @@
   },
   "homepage": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS#readme",
   "devDependencies": {
-    "eslint": "^8.31.0",
+    "eslint": "^8.35.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.8.2"
+    "prettier": "^2.8.4"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint . && prettier --check .",
     "lint:fix": "eslint --fix . && prettier --write .",
     "test": "npm run lint"
   }

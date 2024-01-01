@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* global config Log */
-
 // Initialize new SpeechSynthesisUtterance object
 const speech = new SpeechSynthesisUtterance();
 
@@ -11,14 +8,14 @@ function speak(text) {
   speechSynthesis.cancel();
   speech.text = text;
   const wrapper = document.getElementById("mmm-webspeechtts");
-  if (wrapper !== null) wrapper.innerText = text;
+  if (wrapper !== null) wrapper.textContent = text;
   Log.log(text);
   speechSynthesis.speak(speech);
 }
 
 function getGreetingString() {
-  const time = new Date();
-  const hour = time.getHours();
+  const now = new Date();
+  const hour = now.getHours();
   let greetingsString;
   if (hour > 18) {
     greetingsString = "Guten Abend. ";
@@ -31,8 +28,8 @@ function getGreetingString() {
 }
 
 function getTimeAnnouncementString() {
-  const time = new Date();
-  const timeString = `Es ist ${time.getHours()} Uhr ${time.getMinutes()} .\n`;
+  const now = new Date();
+  const timeString = `Es ist ${now.getHours()} Uhr ${now.getMinutes()} .\n`;
   return timeString;
 }
 

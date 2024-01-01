@@ -1,5 +1,4 @@
-/* global speak getTimeAnnouncementString */
-/* eslint-disable no-unused-vars, no-restricted-syntax */
+/* eslint-disable no-restricted-syntax */
 function getDesparturesString() {
   let announcementText = "";
 
@@ -11,7 +10,7 @@ function getDesparturesString() {
 
     // Station
     const station = pthWrapperClone.getElementsByTagName("header")[0];
-    announcementText += `\nHaltestelle ${station.innerText}.\n`;
+    announcementText += `\nHaltestelle ${station.textContent}.\n`;
 
     const pthTable = pthWrapperClone.getElementsByClassName("mmm-pth-table")[0];
     const thead = pthWrapperClone.querySelector("thead");
@@ -22,20 +21,20 @@ function getDesparturesString() {
     // Time
     const departureTimes = pthTable.getElementsByClassName("mmm-pth-time-cell");
     for (const departureTime of departureTimes) {
-      departureTime.innerText = `${departureTime.innerText.replaceAll(
+      departureTime.textContent = `${departureTime.textContent.replaceAll(
         ":",
         " Uhr "
       )}`;
       // Add a gap in case there is a number at the end of the line. This way it is not read out as an ordinal number.
-      departureTime.innerText += " ";
+      departureTime.textContent += " ";
     }
 
     // Line
     const lines = pthTable.getElementsByClassName("mmm-pth-sign");
     for (const line of lines) {
-      const isLineWithoutPrefix = /^[0-9]$/.test(line.innerText[0]);
+      const isLineWithoutPrefix = /^\d$/.test(line.textContent[0]);
       if (isLineWithoutPrefix) {
-        line.innerText = `Linie ${line.innerText} `;
+        line.textContent = `Linie ${line.textContent} `;
       }
     }
 
@@ -44,15 +43,15 @@ function getDesparturesString() {
       "mmm-pth-direction-cell"
     );
     for (const direction of directions) {
-      direction.innerText = `in Richtung ${direction.innerText} `;
+      direction.textContent = `in Richtung ${direction.textContent} `;
     }
 
     // Platform
     const platforms = pthTable.getElementsByClassName("mmm-pth-platform-cell");
 
     for (const platform of platforms) {
-      if (platform.innerText !== "") {
-        platform.innerText = ` von Steig ${platform.innerText}`;
+      if (platform.textContent !== "") {
+        platform.textContent = ` von Steig ${platform.textContent}`;
       }
     }
 
@@ -64,11 +63,11 @@ function getDesparturesString() {
 
       for (const row of rows) {
         let departureString;
-        if (row.innerText.indexOf("⚠️") > -1) {
-          departureString = row.innerText.split("⚠️")[1];
+        if (row.textContent.includes("⚠️")) {
+          departureString = row.textContent.split("⚠️")[1];
         } else {
           departureCounter += 1;
-          departureString = `Abfahrt ${departureCounter}: ${row.innerText}`;
+          departureString = `Abfahrt ${departureCounter}: ${row.textContent}`;
         }
         departureString = departureString
           .replaceAll("\n", " ")

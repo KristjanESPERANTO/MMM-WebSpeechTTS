@@ -1,5 +1,3 @@
-/* global Module Log */
-
 Module.register("MMM-WebSpeechTTS", {
   defaults: {
     greetingsAtStartup: true,
@@ -47,7 +45,7 @@ Module.register("MMM-WebSpeechTTS", {
     scripts.push(this.file("module-scripts/TTS.js"));
     if (this.config.greetingsAtStartup)
       scripts.push(this.file("module-scripts/TTS-GreetingsAtStartup.js"));
-    if (this.config.modules.indexOf("MMM-PublicTransportHafas") > -1)
+    if (this.config.modules.includes("MMM-PublicTransportHafas"))
       scripts.push(this.file("module-scripts/MMM-PublicTransportHafas.js"));
 
     return scripts;

@@ -19,18 +19,15 @@
   },
   "homepage": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS#readme",
   "devDependencies": {
+    "@eslint/js": "latest",
+    "@stylistic/eslint-plugin": "latest",
     "eslint": "^8.56.0",
-    "eslint-config-airbnb-base": "latest",
-    "eslint-config-prettier": "latest",
     "eslint-plugin-import": "latest",
-    "eslint-plugin-jsonc": "latest",
-    "eslint-plugin-prettier": "latest",
-    "eslint-plugin-unicorn": "latest",
     "prettier": "^3.1.1"
   },
   "scripts": {
     "lint": "eslint . && prettier --check .",
-    "lint:fix": "eslint --fix . && prettier --write .",
+    "lint:fix": "eslint . --fix && prettier . --write",
     "test": "npm run lint"
   }
 }

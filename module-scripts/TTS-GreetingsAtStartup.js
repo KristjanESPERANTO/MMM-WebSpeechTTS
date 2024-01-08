@@ -1,3 +1,5 @@
+/* global getGreetingString getTimeAnnouncementString speak */
+
 setTimeout(() => {
   let firstTextToSpeech = getGreetingString();
   firstTextToSpeech += getTimeAnnouncementString();

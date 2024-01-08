@@ -1,5 +1,5 @@
-/* eslint-disable no-restricted-syntax */
-function getDesparturesString() {
+/* global getTimeAnnouncementString speak */
+function getDesparturesString () {
   let announcementText = "";
 
   // Set the text property with the value of the textarea
@@ -32,16 +32,14 @@ function getDesparturesString() {
     // Line
     const lines = pthTable.getElementsByClassName("mmm-pth-sign");
     for (const line of lines) {
-      const isLineWithoutPrefix = /^\d$/.test(line.textContent[0]);
+      const isLineWithoutPrefix = (/^\d$/u).test(line.textContent[0]);
       if (isLineWithoutPrefix) {
         line.textContent = `Linie ${line.textContent} `;
       }
     }
 
     // Direction
-    const directions = pthTable.getElementsByClassName(
-      "mmm-pth-direction-cell"
-    );
+    const directions = pthTable.getElementsByClassName("mmm-pth-direction-cell");
     for (const direction of directions) {
       direction.textContent = `in Richtung ${direction.textContent} `;
     }

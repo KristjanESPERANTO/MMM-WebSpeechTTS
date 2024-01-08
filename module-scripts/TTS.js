@@ -14,7 +14,7 @@ function speak(text) {
 }
 
 function getGreetingString() {
-  const now = new Date();
+  const now = new Date(Date.now());
   const hour = now.getHours();
   let greetingsString;
   if (hour > 18) {
@@ -28,7 +28,7 @@ function getGreetingString() {
 }
 
 function getTimeAnnouncementString() {
-  const now = new Date();
+  const now = new Date(Date.now());
   const timeString = `Es ist ${now.getHours()} Uhr ${now.getMinutes()} .\n`;
   return timeString;
 }

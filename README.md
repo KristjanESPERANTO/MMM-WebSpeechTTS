@@ -1,8 +1,14 @@
 # MMM-WebSpeechTTS
 
-A Text-To-Speech module for MagicMirror² which uses the Web Speech API of the browser.
+An experimental Text-To-Speech module for MagicMirror² which uses the Web Speech API of the browser.
+
+## Project status
 
 **This module is still under construction and only works partially!**
+
+The architecture of the module is still not good, but the approach of using the Web Speech API makes sense and is worth pursuing further.
+
+I am currently investing my time in other projects, but I am happy to receive PRs or talk about issues.
 
 So far, only German is supported, but other languages are to follow. Support would be very welcome!
 
@@ -60,17 +66,15 @@ So far, only German is supported, but other languages are to follow. Support wou
 
 You have to modify the way you are starting the MagicMirror². You have three options:
 
-1. Adapt `package.json` of MagicMirror²:
+A. Adapt `package.json` of MagicMirror²:
    Add script to package.json:
-   `"start:tts": "speech-dispatcher -s -t 0 & DISPLAY=\"${DISPLAY:=:0}\" ./node_modules/.bin/electron --enable-speech-dispatcher js/electron.js",`
+   `"start:tts": "speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher",,`
 
    Start with: `npm run start:tts`
 
-2. Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`
+B. Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`
 
-### Server mode
-
-Start with: `npm run server` and open MagicMirror² in Firefox.
+C. Start with: `npm run server` and open MagicMirror² in Firefox.
 
 - ToDo: Test with different browsers
 
@@ -85,6 +89,7 @@ git pull
 
 ## ToDo
 
+- Use [MMM-Keypress](https://github.com/ItsMeBrille/MMM-Keypress) instead of self handling keys
 - Mention in MMM-Public-TransportHafas that TTS is possible with this module
 - Translations
 - Read messages from notifications like other modules.

@@ -62,21 +62,24 @@ So far, only German is supported, but other languages are to follow. Support wou
 
 ## Run it
 
-### with Electron
+You have to modify the way you are starting MagicMirror². You have three options:
 
-You have to modify the way you are starting the MagicMirror². You have three options:
+### A. Adapt `package.json` of MagicMirror²
 
-A. Adapt `package.json` of MagicMirror²:
-   Add script to package.json:
-   `"start:tts": "speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher",,`
+Add script to package.json:
+`"start:tts": "speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher",,`
 
-   Start with: `npm run start:tts`
+Start with: `npm run start:tts`
 
-B. Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`
+### B. Run command
 
-C. Start with: `npm run server` and open MagicMirror² in Firefox.
+Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`.
 
-- ToDo: Test with different browsers
+### C. Server mode
+
+Start with: `npm run server` and open MagicMirror² in Firefox.
+
+ToDo: Test with other browsers.
 
 ## Update
 

@@ -1,11 +1,8 @@
 {
   "name": "mmm-webspeechtts",
   "version": "0.0.2",
-  "description": "Text-To-Speech module for MagicMirror²",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS.git"
-  },
+  "description": "Text-To-Speech module for MagicMirror².",
+  "repository": "KristjanESPERANTO/MMM-WebSpeechTTS",
   "keywords": [
     "MagicMirror",
     "text-to-speech",
@@ -21,9 +18,9 @@
   "devDependencies": {
     "@eslint/js": "latest",
     "@stylistic/eslint-plugin": "latest",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "eslint-plugin-import": "latest",
-    "prettier": "^3.1.1"
+    "prettier": "^3.2.5"
   },
   "scripts": {
     "lint": "eslint . && prettier --check .",

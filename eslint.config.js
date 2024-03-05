@@ -9,7 +9,10 @@ const config = [
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...globals.node
+        ...globals.node,
+        config: "readonly",
+        Log: "readonly",
+        Module: "readonly"
       }
     },
     plugins: {

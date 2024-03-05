@@ -1,5 +1,3 @@
-/* global Log Module */
-
 Module.register("MMM-WebSpeechTTS", {
   defaults: {
     greetingsAtStartup: true,

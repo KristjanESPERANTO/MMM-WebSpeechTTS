@@ -1,5 +1,3 @@
-/* global config Log */
-
 // Initialize new SpeechSynthesisUtterance object
 const speech = new SpeechSynthesisUtterance();
 

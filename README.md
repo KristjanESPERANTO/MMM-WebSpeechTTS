@@ -68,11 +68,20 @@ You have to modify the way you are starting the MagicMirror². You have three op
 
 2. Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`
 
-3. Start with: `npm run server` and open MagicMirror in Firefox.
+### Server mode
 
-## Server mode
+Start with: `npm run server` and open MagicMirror² in Firefox.
 
 - ToDo: Test with different browsers
+
+## Update
+
+Go to the module’s directory and pull the latest version from GitHub:
+
+```bash
+cd ~/MagicMirror/modules/MMM-WebSpeechTTS
+git pull
+```
 
 ## ToDo
 

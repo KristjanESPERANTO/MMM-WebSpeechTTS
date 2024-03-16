@@ -22,23 +22,34 @@ So far, only German is supported, but other languages are to follow. Support wou
 ## Installation
 
 1. Clone this module into your MagicMirror² modules folder.
-   `git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/`
-2. Add the configuration of the module to your `config.js`:
 
-   ```js
-   {
-     module: "MMM-WebSpeechTTS",
-     position: "top_left",
-     config: {
-       greetingsAtStartup: true,
-       modules: ["MMM-PublicTransportHafas"]
-     }
-   },
-   ```
+```bash
+cd ~/MagicMirror/modules
+git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/
+```
 
-3. Run command `sudo apt-get install espeak-ng speech-dispatcher`.
+2. Install dependencies:
 
-## Config options
+```bash
+sudo apt-get install espeak-ng speech-dispatcher
+```
+
+## Configuration
+
+Add the configuration of the module to your `config.js`:
+
+```js
+{
+  module: "MMM-WebSpeechTTS",
+  position: "top_left",
+  config: {
+    greetingsAtStartup: true,
+    modules: ["MMM-PublicTransportHafas"]
+  }
+},
+```
+
+### Config options
 
 <!-- prettier-ignore-start -->
 | **Option**           | **Default** | **Description** |

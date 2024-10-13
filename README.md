@@ -23,16 +23,16 @@ So far, only German is supported, but other languages are to follow. Support wou
 
 1. Clone this module into your MagicMirror² modules folder.
 
-```bash
-cd ~/MagicMirror/modules
-git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/
-```
+   ```bash
+   cd ~/MagicMirror/modules
+   git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/
+   ```
 
 2. Install dependencies:
 
-```bash
-sudo apt-get install espeak-ng speech-dispatcher
-```
+   ```bash
+   sudo apt-get install espeak-ng speech-dispatcher
+   ```
 
 ## Configuration
 

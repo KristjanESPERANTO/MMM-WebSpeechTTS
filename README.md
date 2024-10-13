@@ -78,7 +78,7 @@ You have to modify the way you are starting MagicMirror². You have three option
 ### A. Adapt `package.json` of MagicMirror²
 
 Add script to package.json:
-`"start:tts": "speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher",,`
+`"start:tts": "speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher",`
 
 Start with: `npm run start:tts`
 

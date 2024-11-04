@@ -1,0 +1,26 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "Abend",
+    "Abfahrt",
+    "Abfahrten",
+    "angehalten",
+    "Ansage",
+    "epartures",
+    "espeak",
+    "gibt",
+    "Guten",
+    "hafas",
+    "Haltestelle",
+    "Kristjan",
+    "Linie",
+    "reeting",
+    "Richtung",
+    "Steig",
+    "Straße",
+    "webspeechtts"
+  ],
+  "ignorePaths": ["node_modules/**", "translations/**"],
+  "dictionaries": ["node"]
+}

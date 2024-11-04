@@ -107,3 +107,17 @@ git pull
 - Mention in MMM-Public-TransportHafas that TTS is possible with this module
 - Translations
 - Read messages from notifications like other modules.
+
+## Contributing
+
+If you find any problems, bugs or have questions, please [open a GitHub issue](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/issues) in this repository.
+
+Pull requests are of course also very welcome 🙂
+
+### Developer commands
+
+- `npm install` - Install dependencies like ESLint and prettier.
+- `npm run lint` - Run linting and formatter checks.
+- `npm run lint:fix` - Fix linting and formatter issues.
+- `npm run test` - Run linting and formatter checks + Run spelling check.
+- `npm run test:spelling` - Run spelling check.

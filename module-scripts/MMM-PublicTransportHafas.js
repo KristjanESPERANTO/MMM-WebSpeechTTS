@@ -1,5 +1,5 @@
 /* global getTimeAnnouncementString speak */
-function getDesparturesString () {
+function getDeparturesString () {
   let announcementText = "";
 
   // Set the text property with the value of the textarea
@@ -57,7 +57,7 @@ function getDesparturesString () {
 
     if (rows.length > 0) {
       let departureCounter = 0;
-      let allDesparturesString = "";
+      let allDeparturesString = "";
 
       for (const row of rows) {
         let departureString;
@@ -72,10 +72,10 @@ function getDesparturesString () {
           .replaceAll("str.", "straße")
           .replaceAll("Str.", "Straße")
           .replaceAll("STR.", "Straße");
-        allDesparturesString += `${departureString}.\n`;
+        allDeparturesString += `${departureString}.\n`;
       }
       announcementText += `Es gibt ${departureCounter} Abfahrten.\n`;
-      announcementText += allDesparturesString
+      announcementText += allDeparturesString
         .replaceAll("\t", " ")
         .replaceAll("  ", " ");
     }
@@ -87,6 +87,6 @@ function getDesparturesString () {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "d") {
-    speak(`${getTimeAnnouncementString()} - ${getDesparturesString()}`);
+    speak(`${getTimeAnnouncementString()} - ${getDeparturesString()}`);
   }
 });

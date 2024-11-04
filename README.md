@@ -25,7 +25,7 @@ So far, only German is supported, but other languages are to follow. Support wou
 
    ```bash
    cd ~/MagicMirror/modules
-   git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/
+   git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS
    ```
 
 2. Install dependencies:
@@ -63,11 +63,11 @@ Add the configuration of the module to your `config.js`:
 ## Keyboard control
 
 <!-- prettier-ignore-start -->
-| **Key** | **Modul**  | **Description**       |
-| ---     | ---        | ---                   |
-| `g`     | `built-in` | **G**reeting.         |
-| `s`     | `built-in` | **S**top the reading. |
-| `t`     | `built-in` | Tell the **t**ime.    |
+| **Key** | **Module**  | **Description**       |
+| ---     | ---         | ---                   |
+| `g`     | `built-in`  | **G**reeting.         |
+| `s`     | `built-in`  | **S**top the reading. |
+| `t`     | `built-in`  | Tell the **t**ime.    |
 | `d`     | `"MMM-WebSpeechTTS"` | Read the **d**epartures. |
 <!-- prettier-ignore-end -->
 

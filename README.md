@@ -1,6 +1,6 @@
 # MMM-WebSpeechTTS
 
-An experimental Text-To-Speech module for MagicMirror² which uses the Web Speech API of the browser.
+An experimental Text-To-Speech module for [MagicMirror²](https://github.com/MagicMirrorOrg/MagicMirror) which uses the Web Speech API of the browser.
 
 ## Project status
 

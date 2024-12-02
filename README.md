@@ -114,6 +114,10 @@ If you find any problems, bugs or have questions, please [open a GitHub issue](h
 
 Pull requests are of course also very welcome 🙂
 
+### Code of Conduct
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+
 ### Developer commands
 
 - `npm install` - Install dependencies like ESLint and prettier.
@@ -121,3 +125,7 @@ Pull requests are of course also very welcome 🙂
 - `npm run lint:fix` - Fix linting and formatter issues.
 - `npm run test` - Run linting and formatter checks + Run spelling check.
 - `npm run test:spelling` - Run spelling check.
+
+### License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.

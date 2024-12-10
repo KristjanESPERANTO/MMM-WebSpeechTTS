@@ -127,6 +127,6 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 - `npm run test` - Run linting and formatter checks + Run spelling check.
 - `npm run test:spelling` - Run spelling check.
 
-### License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.

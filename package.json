@@ -2,23 +2,30 @@
   "name": "mmm-webspeechtts",
   "version": "0.0.4",
   "description": "Text-To-Speech module for MagicMirror².",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS.git"
-  },
-  "main": "MMM-WebSpeechTTS.js",
   "keywords": [
     "MagicMirror",
     "text-to-speech",
     "TTS",
     "WebSpeech"
   ],
-  "author": "Kristjan ESPERANTO",
-  "license": "MIT",
+  "homepage": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS#readme",
   "bugs": {
     "url": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/issues"
   },
-  "homepage": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS"
+  },
+  "license": "MIT",
+  "author": "Kristjan ESPERANTO",
+  "main": "MMM-WebSpeechTTS.js",
+  "scripts": {
+    "lint": "eslint . && markdownlint . --ignore node_modules  && prettier --check .",
+    "lint:fix": "eslint . --fix && markdownlint . --ignore node_modules && prettier . --write",
+    "release": "npx bumpp --no-push",
+    "test": "npm run lint && npm run test:spelling",
+    "test:spelling": "cspell ."
+  },
   "devDependencies": {
     "@eslint/js": "^9.16.0",
     "@stylistic/eslint-plugin": "^2.12.0",
@@ -28,12 +35,5 @@
     "globals": "^15.13.0",
     "markdownlint-cli": "^0.43.0",
     "prettier": "^3.4.2"
-  },
-  "scripts": {
-    "lint": "eslint . && markdownlint . --ignore node_modules  && prettier --check .",
-    "lint:fix": "eslint . --fix && markdownlint . --ignore node_modules && prettier . --write",
-    "release": "npx bumpp --no-push",
-    "test": "npm run lint && npm run test:spelling",
-    "test:spelling": "cspell ."
   }
 }

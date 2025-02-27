@@ -27,13 +27,13 @@
     "test:spelling": "cspell ."
   },
   "devDependencies": {
-    "@eslint/js": "^9.16.0",
-    "@stylistic/eslint-plugin": "^2.12.0",
-    "cspell": "^8.16.1",
-    "eslint": "^9.16.0",
+    "@eslint/js": "^9.21.0",
+    "@stylistic/eslint-plugin": "^4.1.0",
+    "cspell": "^8.17.5",
+    "eslint": "^9.21.0",
     "eslint-plugin-import": "^2.31.0",
-    "globals": "^15.13.0",
-    "markdownlint-cli": "^0.43.0",
-    "prettier": "^3.4.2"
+    "globals": "^16.0.0",
+    "markdownlint-cli": "^0.44.0",
+    "prettier": "^3.5.2"
   }
 }

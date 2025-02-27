@@ -39,14 +39,14 @@ So far, only German is supported, but other languages are to follow. Support wou
 Add the configuration of the module to your `config.js`:
 
 ```js
-{
-  module: "MMM-WebSpeechTTS",
-  position: "top_left",
-  config: {
-    greetingsAtStartup: true,
-    modules: ["MMM-PublicTransportHafas"]
-  }
-},
+    {
+      module: "MMM-WebSpeechTTS",
+      position: "top_left",
+      config: {
+        greetingsAtStartup: true,
+        modules: ["MMM-PublicTransportHafas"]
+      }
+    },
 ```
 
 ### Config options

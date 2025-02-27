@@ -51,25 +51,21 @@ Add the configuration of the module to your `config.js`:
 
 ### Config options
 
-<!-- prettier-ignore-start -->
-| **Option**           | **Default** | **Description** |
-| ---                  | ---         | ---             |
-| `greetingsAtStartup` | `true`      | If true, the MagicMirror² will greet you after it has started. |
-| `hidden`             | `true`      | Set the value to `false` if you want to see the text that is read out on your mirror. |
-| `modules`            | `[]`        | Array of modules which you wanna use. Till now only "MMM-PublicTransportHafas" is possible. |
-| `text`               | `"MMM-WebSpeechTTS"` | Text to display at startup if `hidden:false`. |
-<!-- prettier-ignore-end -->
+| **Option**           | **Default**          | **Description**                                                                             |
+| -------------------- | -------------------- | ------------------------------------------------------------------------------------------- |
+| `greetingsAtStartup` | `true`               | If true, the MagicMirror² will greet you after it has started.                              |
+| `hidden`             | `true`               | Set the value to `false` if you want to see the text that is read out on your mirror.       |
+| `modules`            | `[]`                 | Array of modules which you wanna use. Till now only "MMM-PublicTransportHafas" is possible. |
+| `text`               | `"MMM-WebSpeechTTS"` | Text to display at startup if `hidden:false`.                                               |
 
 ## Keyboard control
 
-<!-- prettier-ignore-start -->
-| **Key** | **Module**  | **Description**       |
-| ---     | ---         | ---                   |
-| `g`     | `built-in`  | **G**reeting.         |
-| `s`     | `built-in`  | **S**top the reading. |
-| `t`     | `built-in`  | Tell the **t**ime.    |
+| **Key** | **Module**           | **Description**          |
+| ------- | -------------------- | ------------------------ |
+| `g`     | `built-in`           | **G**reeting.            |
+| `s`     | `built-in`           | **S**top the reading.    |
+| `t`     | `built-in`           | Tell the **t**ime.       |
 | `d`     | `"MMM-WebSpeechTTS"` | Read the **d**epartures. |
-<!-- prettier-ignore-end -->
 
 ## Run it
 

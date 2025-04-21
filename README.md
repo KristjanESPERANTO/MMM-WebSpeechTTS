@@ -116,7 +116,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### Developer commands
 
-- `npm install` - Install dependencies like ESLint and prettier.
+- `npm install` - Install development dependencies.
 - `npm run lint` - Run linting and formatter checks.
 - `npm run lint:fix` - Fix linting and formatter issues.
 - `npm run test` - Run linting and formatter checks + Run spelling check.

@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.8](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.0.7...v0.0.8) - 2025-04-21
+
+### Changed
+
+- chore: update ESLint configuration to use new import plugin structure
+- chore: update devDependencies
+- docs: adapt 'npm install' description for consistency with other modules
+
 ## [0.0.7](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.0.6...v0.0.7) - 2025-03-21
 
 ### Added

@@ -39,7 +39,7 @@
   "devDependencies": {
     "@eslint/js": "^9.25.0",
     "@stylistic/eslint-plugin": "^4.2.0",
-    "cspell": "^8.19.2",
+    "cspell": "^8.19.3",
     "eslint": "^9.25.0",
     "eslint-plugin-import-x": "^4.10.6",
     "globals": "^16.0.0",

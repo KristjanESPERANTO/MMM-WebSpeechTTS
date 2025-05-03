@@ -74,13 +74,13 @@ You have to modify the way you are starting MagicMirror². You have three option
 ### A. Adapt `package.json` of MagicMirror²
 
 Add script to package.json:
-`"start:tts": "speech-dispatcher -s -t 0 & node --run start -- --enable-speech-dispatcher",`
+`"start:tts": "speech-dispatcher -s -t 0 & node --run start:wayland -- --enable-speech-dispatcher",`
 
 Start with: `node --run start:tts`
 
 ### B. Run command
 
-Run `speech-dispatcher -s -t 0 & node --run start -- --enable-speech-dispatcher` instead of `node --run start`.
+Run `speech-dispatcher -s -t 0 & node --run start:wayland -- --enable-speech-dispatcher` instead of `node --run start`.
 
 ### C. Server mode
 

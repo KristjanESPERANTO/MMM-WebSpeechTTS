@@ -74,17 +74,17 @@ You have to modify the way you are starting MagicMirror². You have three option
 ### A. Adapt `package.json` of MagicMirror²
 
 Add script to package.json:
-`"start:tts": "speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher",`
+`"start:tts": "speech-dispatcher -s -t 0 & node --run start -- --enable-speech-dispatcher",`
 
-Start with: `npm run start:tts`
+Start with: `node --run start:tts`
 
 ### B. Run command
 
-Run `speech-dispatcher -s -t 0 & npm run start -- --enable-speech-dispatcher` instead of `npm run start`.
+Run `speech-dispatcher -s -t 0 & node --run start -- --enable-speech-dispatcher` instead of `node --run start`.
 
 ### C. Server mode
 
-Start with: `npm run server` and open MagicMirror² in Firefox.
+Start with: `node --run server` and open MagicMirror² in Firefox.
 
 ToDo: Test with other browsers.
 
@@ -117,10 +117,10 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 ### Developer commands
 
 - `npm install` - Install development dependencies.
-- `npm run lint` - Run linting and formatter checks.
-- `npm run lint:fix` - Fix linting and formatter issues.
-- `npm run test` - Run linting and formatter checks + Run spelling check.
-- `npm run test:spelling` - Run spelling check.
+- `node --run lint` - Run linting and formatter checks.
+- `node --run lint:fix` - Fix linting and formatter issues.
+- `node --run test` - Run linting and formatter checks + Run spelling check.
+- `node --run test:spelling` - Run spelling check.
 
 ## License
 

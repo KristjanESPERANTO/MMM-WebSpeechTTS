@@ -8,6 +8,7 @@
     "TTS",
     "WebSpeech"
   ],
+  "type": "commonjs",
   "homepage": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS#readme",
   "bugs": {
     "url": "https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/issues"

@@ -9,12 +9,10 @@ Module.register("MMM-WebSpeechTTS", {
   start () {
     Log.info(`Starting module: ${this.name} with identifier: ${this.identifier}`);
     this.tts = this.config.text;
-    this.sendSocketNotification("CONFIG", this.config);
   },
 
   notificationReceived (notification, payload) {
     if (notification === "WebSpeechTTS") {
-      this.sendSocketNotification("TTS", payload);
       this.tts = payload;
       this.updateDom();
     }

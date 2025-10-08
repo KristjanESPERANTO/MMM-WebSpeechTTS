@@ -1,3 +1,21 @@
 {
-  "TEST_TEXT": "Cancelled"
+  "GOOD_MORNING": "Good morning.",
+  "GOOD_DAY": "Good day.",
+  "GOOD_EVENING": "Good evening.",
+  "TIME_ANNOUNCEMENT": "It is {hours} o'clock and {minutes} minutes.",
+  "TIME_ANNOUNCEMENT_FULL_HOUR": "It is {hours} o'clock.",
+  "TIME_ANNOUNCEMENT_ONE_MINUTE": "It is {hours} o'clock and {minutes} minute.",
+  "SPEECH_STOPPED": "Speech stopped",
+  "STATION": "Station",
+  "LINE": "Line",
+  "DIRECTION": "towards",
+  "PLATFORM": "from platform",
+  "DEPARTURE": "Departure",
+  "DEPARTURES_COUNT": "There are {count} departures.",
+  "HOUR": "o'clock",
+  "STREET_SHORT": "st.",
+  "STREET": "street",
+  "STREET_SHORT_CAP": "St.",
+  "STREET_CAP": "Street",
+  "STREET_SHORT_ALLCAP": "ST."
 }

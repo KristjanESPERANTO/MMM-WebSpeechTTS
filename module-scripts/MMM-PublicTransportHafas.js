@@ -1,92 +1,144 @@
-/* global getTimeAnnouncementString speak */
-function getDeparturesString () {
-  let announcementText = "";
-
-  // Set the text property with the value of the textarea
-  const pthWrappers = document.getElementsByClassName("mmm-pth-wrapper");
-
-  for (const pthWrapper of pthWrappers) {
-    const pthWrapperClone = pthWrapper.cloneNode(true);
-
-    // Station
-    const station = pthWrapperClone.getElementsByTagName("header")[0];
-    announcementText += `\nHaltestelle ${station.textContent}.\n`;
-
-    const pthTable = pthWrapperClone.getElementsByClassName("mmm-pth-table")[0];
-    const thead = pthWrapperClone.querySelector("thead");
-    if (thead !== null) {
-      thead.remove();
-    }
-
-    // Time
-    const departureTimes = pthTable.getElementsByClassName("mmm-pth-time-cell");
-    for (const departureTime of departureTimes) {
-      departureTime.textContent = `${departureTime.textContent.replaceAll(
-        ":",
-        " Uhr "
-      )}`;
-      // Add a gap in case there is a number at the end of the line. This way it is not read out as an ordinal number.
-      departureTime.textContent += " ";
-    }
-
-    // Line
-    const lines = pthTable.getElementsByClassName("mmm-pth-sign");
-    for (const line of lines) {
-      const isLineWithoutPrefix = (/^\d$/u).test(line.textContent[0]);
-      if (isLineWithoutPrefix) {
-        line.textContent = `Linie ${line.textContent} `;
-      }
-    }
-
-    // Direction
-    const directions = pthTable.getElementsByClassName("mmm-pth-direction-cell");
-    for (const direction of directions) {
-      direction.textContent = `in Richtung ${direction.textContent} `;
-    }
-
-    // Platform
-    const platforms = pthTable.getElementsByClassName("mmm-pth-platform-cell");
-
-    for (const platform of platforms) {
-      if (platform.textContent !== "") {
-        platform.textContent = ` von Steig ${platform.textContent}`;
-      }
-    }
-
-    const rows = pthTable.getElementsByTagName("tr");
-
-    if (rows.length > 0) {
-      let departureCounter = 0;
-      let allDeparturesString = "";
-
-      for (const row of rows) {
-        let departureString;
-        if (row.textContent.includes("⚠️")) {
-          departureString = row.textContent.split("⚠️")[1];
-        } else {
-          departureCounter += 1;
-          departureString = `Abfahrt ${departureCounter}: ${row.textContent}`;
-        }
-        departureString = departureString
-          .replaceAll("\n", " ")
-          .replaceAll("str.", "straße")
-          .replaceAll("Str.", "Straße")
-          .replaceAll("STR.", "Straße");
-        allDeparturesString += `${departureString}.\n`;
-      }
-      announcementText += `Es gibt ${departureCounter} Abfahrten.\n`;
-      announcementText += allDeparturesString
-        .replaceAll("\t", " ")
-        .replaceAll("  ", " ");
-    }
+(() => {
+  const helpers = window.MMMWebSpeechTtsHelpers;
+  if (!helpers) {
+    return;
   }
 
-  // Start Speaking
-  return announcementText;
-}
+  const translate = (key, variables) => helpers.translate(key, variables);
 
-document.addEventListener("keydown", (event) => {
-  if (event.key === "d") {
-    speak(`${getTimeAnnouncementString()} - ${getDeparturesString()}`);
-  }
-});
+  const sanitizeRowText = (text) => {
+    if (typeof text !== "string") {
+      return "";
+    }
+
+    return text
+      .replaceAll("\n", " ")
+      .replaceAll(translate("STREET_SHORT"), translate("STREET"))
+      .replaceAll(translate("STREET_SHORT_CAP"), translate("STREET_CAP"))
+      .replaceAll(translate("STREET_SHORT_ALLCAP"), translate("STREET_CAP"))
+      .replaceAll("\t", " ")
+      .replaceAll("  ", " ");
+  };
+
+  const describeTable = (table) => {
+    const workingTable = table;
+    const head = workingTable.querySelector("thead");
+    if (head) {
+      head.remove();
+    }
+
+    const timeCells = workingTable.getElementsByClassName("mmm-pth-time-cell");
+    for (const timeCell of timeCells) {
+      const replaced = timeCell.textContent.replaceAll(":", ` ${translate("HOUR")} `);
+      timeCell.textContent = `${replaced} `;
+    }
+
+    const lineCells = workingTable.getElementsByClassName("mmm-pth-sign");
+    for (const lineCell of lineCells) {
+      const firstCharacter = lineCell.textContent[0];
+      const isNumber = (/^\d$/u).test(firstCharacter);
+      if (isNumber) {
+        lineCell.textContent = `${translate("LINE")} ${lineCell.textContent} `;
+      }
+    }
+
+    const directionCells = workingTable.getElementsByClassName("mmm-pth-direction-cell");
+    for (const directionCell of directionCells) {
+      directionCell.textContent = `${translate("DIRECTION")} ${directionCell.textContent} `;
+    }
+
+    const platformCells = workingTable.getElementsByClassName("mmm-pth-platform-cell");
+    for (const platformCell of platformCells) {
+      if (platformCell.textContent !== "") {
+        platformCell.textContent = ` ${translate("PLATFORM")} ${platformCell.textContent}`;
+      }
+    }
+
+    const rows = workingTable.getElementsByTagName("tr");
+    if (rows.length === 0) {
+      return "";
+    }
+
+    let counter = 0;
+    let rowsAnnouncement = "";
+
+    for (const row of rows) {
+      let departureText;
+      if (row.textContent.includes("⚠️")) {
+        const [, warningText] = row.textContent.split("⚠️");
+        departureText = sanitizeRowText(warningText);
+      } else {
+        counter += 1;
+        const rowText = sanitizeRowText(row.textContent);
+        departureText = `${translate("DEPARTURE")} ${counter}: ${rowText}`;
+      }
+
+      rowsAnnouncement += `${departureText}.\n`;
+    }
+
+    let description = "";
+    description += `${translate("DEPARTURES_COUNT", {count: counter})}\n`;
+    description += rowsAnnouncement;
+    return description;
+  };
+
+  const buildDeparturesText = () => {
+    let announcement = "";
+    const wrappers = document.getElementsByClassName("mmm-pth-wrapper");
+
+    for (const wrapper of wrappers) {
+      const clone = wrapper.cloneNode(true);
+      const stationHeader = clone.getElementsByTagName("header")[0];
+      if (stationHeader) {
+        announcement += `\n${translate("STATION")} ${stationHeader.textContent}.\n`;
+      }
+
+      const table = clone.getElementsByClassName("mmm-pth-table")[0];
+      if (table) {
+        announcement += describeTable(table);
+      }
+    }
+
+    return announcement;
+  };
+
+  const speakDepartures = (api) => {
+    const departuresText = buildDeparturesText();
+    if (departuresText.trim() === "") {
+      return;
+    }
+
+    const timeAnnouncement = helpers.getTimeAnnouncementString();
+    const combined = `${timeAnnouncement} ${departuresText}`;
+    api.say({
+      id: "mmm-webspeechtts-public-transport",
+      text: combined,
+      source: "public-transport"
+    });
+  };
+
+  const registerKeyboardShortcut = (api, config) => {
+    const shortcut = typeof config.shortcut === "string" && config.shortcut.trim() !== ""
+      ? config.shortcut.trim().toLowerCase()
+      : "d";
+
+    document.addEventListener("keydown", (event) => {
+      if (event.defaultPrevented) {
+        return;
+      }
+
+      if (event.key.toLowerCase() === shortcut) {
+        speakDepartures(api);
+      }
+    });
+  };
+
+  helpers.onReady((api) => {
+    const config = helpers.getProducerConfig("publicTransport");
+    if (!config) {
+      return;
+    }
+
+    registerKeyboardShortcut(api, config);
+  });
+})();

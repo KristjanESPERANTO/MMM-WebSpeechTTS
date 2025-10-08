@@ -1,3 +1,21 @@
 {
-  "TEST_TEXT": "Fällt aus"
+  "GOOD_MORNING": "Guten Morgen.",
+  "GOOD_DAY": "Guten Tag.",
+  "GOOD_EVENING": "Guten Abend.",
+  "TIME_ANNOUNCEMENT": "Es ist {hours} Uhr und {minutes} Minuten.",
+  "TIME_ANNOUNCEMENT_FULL_HOUR": "Es ist {hours} Uhr.",
+  "TIME_ANNOUNCEMENT_ONE_MINUTE": "Es ist {hours} Uhr und {minutes} Minute.",
+  "SPEECH_STOPPED": "Ansage angehalten",
+  "STATION": "Haltestelle",
+  "LINE": "Linie",
+  "DIRECTION": "in Richtung",
+  "PLATFORM": "von Steig",
+  "DEPARTURE": "Abfahrt",
+  "DEPARTURES_COUNT": "Es gibt {count} Abfahrten.",
+  "HOUR": "Uhr",
+  "STREET_SHORT": "str.",
+  "STREET": "straße",
+  "STREET_SHORT_CAP": "Str.",
+  "STREET_CAP": "Straße",
+  "STREET_SHORT_ALLCAP": "STR."
 }

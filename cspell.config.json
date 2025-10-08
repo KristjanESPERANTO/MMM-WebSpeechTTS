@@ -19,6 +19,7 @@
     "Richtung",
     "Steig",
     "Straße",
+    "ALLCAP",
     "webspeechtts"
   ],
   "ignorePaths": ["node_modules/**", "translations/**"],

@@ -31,9 +31,12 @@ export default defineConfig([
       "func-style": "off",
       "import-x/no-unresolved": ["error", {ignore: ["eslint/config"]}],
       "init-declarations": "off",
+      "max-lines": ["error", {max: 600, skipBlankLines: true, skipComments: true}],
       "max-lines-per-function": ["error", 100],
+      "max-params": ["error", 6],
       "max-statements": ["error", 50],
       "no-magic-numbers": "off",
+      "no-ternary": "off",
       "one-var": ["error", "never"],
       "prefer-destructuring": "off",
       "sort-keys": "off"

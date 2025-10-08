@@ -1,6 +1,6 @@
 {
   "name": "mmm-webspeechtts",
-  "version": "0.0.10",
+  "version": "0.1.0",
   "description": "Text-To-Speech module for MagicMirror².",
   "keywords": [
     "MagicMirror",

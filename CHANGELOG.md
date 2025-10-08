@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.0](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.0.10...v0.1.0) - 2025-10-08
+
+### Changed
+
+- chore: update actions/checkout to v5 in automated tests workflow
+- chore: update actions/setup-node to v5 in automated tests workflow
+- chore: update devDependencies
+- refactor: improve architecture and features
+
 ## [0.0.10](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.0.9...v0.0.10) - 2025-06-09
 
 ### Changed

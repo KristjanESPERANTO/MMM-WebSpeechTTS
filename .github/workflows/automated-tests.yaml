@@ -11,7 +11,7 @@ permissions:
 jobs:
   run-lint:
     runs-on: ubuntu-slim
-    timeout-minutes: 30
+    timeout-minutes: 10
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"

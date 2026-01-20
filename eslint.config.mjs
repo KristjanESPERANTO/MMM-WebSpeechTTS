@@ -43,6 +43,7 @@ export default defineConfig([
     }
   },
   {files: ["demo.config.js"], rules: {"no-inline-comments": "off", "no-undef": "off", "prefer-const": "off"}},
+  {files: ["changelog.config.js"], languageOptions: {globals: globals.node}},
   {files: ["**/*.json"], ignores: ["package-lock.json"], plugins: {json}, language: "json/json", extends: ["json/recommended"]},
   {files: ["**/*.md"], plugins: {markdown}, language: "markdown/gfm", extends: ["markdown/recommended"]}
 ]);

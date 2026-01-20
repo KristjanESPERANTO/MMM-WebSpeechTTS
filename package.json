@@ -21,6 +21,7 @@
   "author": "Kristjan ESPERANTO",
   "main": "MMM-WebSpeechTTS.js",
   "scripts": {
+    "demo": "cd ../../ && (speech-dispatcher -s -t 0 & true) && MM_CONFIG_FILE=modules/MMM-WebSpeechTTS/demo.config.js ./node_modules/.bin/electron js/electron.js --ozone-platform=wayland --enable-speech-dispatcher",
     "lint": "eslint && prettier --check .",
     "lint:fix": "eslint --fix && prettier . --write",
     "prepare": "husky",

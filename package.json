@@ -24,10 +24,13 @@
     "demo": "cd ../../ && (speech-dispatcher -s -t 0 & true) && MM_CONFIG_FILE=modules/MMM-WebSpeechTTS/demo.config.js ./node_modules/.bin/electron js/electron.js --ozone-platform=wayland --enable-speech-dispatcher",
     "lint": "eslint && prettier --check .",
     "lint:fix": "eslint --fix && prettier . --write",
-    "prepare": "husky",
+    "prepare": "node -e \"try{require('simple-git-hooks').run()}catch(e){}\"",
     "release": "commit-and-tag-version --config ./changelog.config.js",
     "test": "node --run lint && node --run test:spelling",
     "test:spelling": "cspell ."
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*": [
@@ -45,8 +48,8 @@
     "eslint": "^9.39.2",
     "eslint-plugin-import-x": "^4.16.1",
     "globals": "^17.0.0",
-    "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "simple-git-hooks": "^2.13.1",
     "prettier": "^3.8.0"
   }
 }

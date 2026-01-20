@@ -1,9 +1,24 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [0.1.1](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.1.0...v0.1.1) (2026-01-20)
+
+
+### Documentation
+
+* update README with installation instructions for Piper TTS and clarify speech-dispatcher usage ([49958a7](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/49958a7f31cb2951f44e37822b3a9a1ebfe870a4))
+
+
+### Chores
+
+* add demo config and script ([f0e6a87](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/f0e6a8721366e27693995dfae957840e81e3fd38))
+* add release automation with commit-and-tag-version ([da44d5b](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/da44d5ba8a2dd6e3263066e56269342aef912279))
+* change runner from ubuntu-latest to ubuntu-slim in CI workflow ([cfda17a](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/cfda17adf8ce56c8a0416ec8561a35a296444caf))
+* optimize GitHub Actions workflow timeout ([e6c5821](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/e6c5821a4b2cb52631cbf0a1ec9ac44088a74973))
+* replace husky with simple-git-hooks for pre-commit linting ([a7989d9](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/a7989d9e0803e4c16085f409900853012476b7a5))
+* update devDependencies ([444936a](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/444936ac51ea4337bf018d126b7592a83b3ca6b8))
+* update github actions ([78899eb](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/78899ebf6ef92d907fb8b3d7bd194c7ae1464ea0))
 
 ## [0.1.0](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.0.10...v0.1.0) - 2025-10-08
 

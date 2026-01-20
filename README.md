@@ -48,9 +48,9 @@ flowchart LR
   Module -->|WEB_SPEECH_TTS_STARTED<br>/ ENDED| Modules
 ```
 
-When MagicMirror² is started with `--enable-speech-dispatcher` (recommended on Linux), the Electrons’s Web Speech API will route synthesis requests to the system-level `speech-dispatcher` daemon, unlocking voices such as those provided by `espeak-ng`.
+When MagicMirror² is started with `--enable-speech-dispatcher` (recommended on Linux), Electron's Web Speech API will route synthesis requests to the system-level `speech-dispatcher` daemon, unlocking voices provided by TTS engines.
 
-If you are running MagicMirror² in a browser (e.g., Firefox or Chrome), the module will use the built-in voices available in that browser. And `espeak-ng` nor `speech-dispatcher` nor `--enable-speech-dispatcher` are required.
+If you are running MagicMirror² in a browser (e.g., Firefox or Chrome), the module will use the built-in voices available in that browser. In this case, `speech-dispatcher` is not required and browser-based cloud TTS may provide better quality.
 
 ## Installation
 
@@ -61,7 +61,90 @@ If you are running MagicMirror² in a browser (e.g., Firefox or Chrome), the mod
    git clone https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS
    ```
 
-2. (Optional) Install `espeak-ng` and `speech-dispatcher` to add additional voices for Electron on Linux:
+2. **Install TTS engine (Linux with Electron)**
+
+   ### Option A: Piper (Recommended - Neural TTS)
+
+   Piper provides high-quality neural text-to-speech that sounds significantly better than traditional engines like espeak-ng.
+
+   **Install Piper:**
+
+   ```bash
+   pip3 install piper-tts
+   ```
+
+   **Download voice models:**
+
+   ```bash
+   # Create voices directory
+   mkdir -p ~/.local/share/piper/voices
+   cd ~/.local/share/piper/voices
+
+   # English (US) - Lessac voice
+   wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/lessac/medium/en_US-lessac-medium.onnx
+   wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/en/en_US/lessac/medium/en_US-lessac-medium.onnx.json
+
+   # German - Thorsten voice (optional)
+   wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/de/de_DE/thorsten/medium/de_DE-thorsten-medium.onnx
+   wget https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/de/de_DE/thorsten/medium/de_DE-thorsten-medium.onnx.json
+   ```
+
+   > **More voices:** Browse all available voices at <https://huggingface.co/rhasspy/piper-voices/tree/v1.0.0>
+   >
+   > Download pattern: `https://huggingface.co/rhasspy/piper-voices/resolve/v1.0.0/{language}/{locale}/{voice}/{quality}/{model_name}.onnx`
+
+   **Configure speech-dispatcher to use Piper:**
+
+   ```bash
+   # Install speech-dispatcher if not already installed
+   sudo apt-get install speech-dispatcher
+
+   # Create user config directory
+   mkdir -p ~/.config/speech-dispatcher/modules
+
+   # Create Piper module configuration
+   cat > ~/.config/speech-dispatcher/modules/piper.conf << 'EOF'
+   # Piper TTS output module for Speech Dispatcher
+
+   # Choose one GenericExecuteSynth line (English or German):
+   # English voice
+   GenericExecuteSynth "echo '$DATA' | piper --model ~/.local/share/piper/voices/en_US-lessac-medium.onnx --output-raw | aplay -q -r 22050 -f S16_LE -t raw -"
+
+   # German voice (uncomment to use)
+   #GenericExecuteSynth "echo '$DATA' | piper --model ~/.local/share/piper/voices/de_DE-thorsten-medium.onnx --output-raw | aplay -q -r 22050 -f S16_LE -t raw -"
+
+   AddVoice "en" "MALE1" "en_US-lessac-medium"
+   AddVoice "de" "MALE1" "de_DE-thorsten-medium"
+   DefaultVoice "en_US-lessac-medium"
+
+   GenericRateAdd 50
+   GenericPitchAdd 50
+   GenericVolumeAdd 50
+   Debug 0
+   EOF
+
+   # Configure speech-dispatcher to use Piper
+   cat > ~/.config/speech-dispatcher/speechd.conf << 'EOF'
+   # Speech Dispatcher configuration for Piper TTS
+   DefaultModule piper
+   AddModule "piper" "sd_generic" "piper.conf"
+   AudioOutputMethod "alsa"
+   EOF
+   ```
+
+   **Test Piper:**
+
+   ```bash
+   # Test directly
+   echo "Hello, this is Piper speaking!" | piper --model ~/.local/share/piper/voices/en_US-lessac-medium.onnx --output-raw | aplay -r 22050 -f S16_LE -t raw -
+
+   # Test via speech-dispatcher
+   spd-say "Hello from Piper through speech dispatcher!"
+   ```
+
+   ### Option B: espeak-ng (Fallback - Traditional TTS)
+
+   If you prefer a simpler setup or Piper doesn't work for your system, you can use espeak-ng. Note that espeak-ng uses formant synthesis and sounds more robotic than neural TTS engines like Piper.
 
    ```bash
    sudo apt-get install espeak-ng speech-dispatcher

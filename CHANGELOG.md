@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.2](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.1.1...v0.1.2) (2026-07-21)
+
+### Documentation
+
+* add demo script command ([f85476f](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/f85476fe53e7cd8c939bb0beddb3a972860024ff))
+
+### Chores
+
+* add trailing comma and indentation to config example ([d346c28](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/d346c28499c8888cb57c0e886f0a75674ad89ac5))
+* rename and sort stylistic rules ([c3c71f9](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/c3c71f982bc67387d5d544af3190bfe9f94b9cc4))
+* reorder dependencies in package.json ([9468031](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/946803172f1c9653285172c7fba46619a22a4e2e))
+* show available keys in demo ([869c56e](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/869c56ef9b022300286e36324f724e15c8e865ba))
+* update actions/checkout to v7 ([7d98c22](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/7d98c227f9aade2337ce2773c9e4f2246c4c4e66))
+* update cspell config ([3bf7513](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/3bf75136832187b53f5622a092c53c6c1beaab34))
+* update devDependencies ([aa0e66d](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/aa0e66d652fdeb90986af34ae636d33543f98db3))
 ## [0.1.1](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.1.0...v0.1.1) (2026-01-20)
 
 

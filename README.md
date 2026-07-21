@@ -155,37 +155,37 @@ If you are running MagicMirror² in a browser (e.g., Firefox or Chrome), the mod
 Add the module to your `config.js` and customize the service and producers as needed:
 
 ```js
-{
-  module: "MMM-WebSpeechTTS",
-  position: "top_left",
-  config: {
-    hidden: true,
-    speechLang: "en-US",
-    speechVoice: "",
-    speechRate: 1,
-    speechPitch: 1,
-    speechVolume: 1,
-    translationLang: "",
-    producers: {
-      greeting: {
-        enabled: true,
-        delay: 8000
-      },
-      keyboard: {
-        enabled: true,
-        shortcuts: {
-          greeting: "g",
-          stop: "s",
-          time: "t"
+    {
+      module: "MMM-WebSpeechTTS",
+      position: "top_left",
+      config: {
+        hidden: true,
+        speechLang: "en-US",
+        speechVoice: "",
+        speechRate: 1,
+        speechPitch: 1,
+        speechVolume: 1,
+        translationLang: "",
+        producers: {
+          greeting: {
+            enabled: true,
+            delay: 8000
+          },
+          keyboard: {
+            enabled: true,
+            shortcuts: {
+              greeting: "g",
+              stop: "s",
+              time: "t"
+            }
+          },
+          publicTransport: {
+            enabled: true,
+            shortcut: "d"
+          }
         }
-      },
-      publicTransport: {
-        enabled: true,
-        shortcut: "d"
       }
-    }
-  }
-}
+    },
 ```
 
 ### Core options

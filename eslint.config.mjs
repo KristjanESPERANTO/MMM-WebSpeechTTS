@@ -21,13 +21,6 @@ export default defineConfig([
     plugins: {js, stylistic},
     extends: [importX.recommended, "js/all", "stylistic/all"],
     rules: {
-      "@stylistic/array-element-newline": ["error", "consistent"],
-      "@stylistic/dot-location": ["error", "property"],
-      "@stylistic/function-call-argument-newline": ["error", "consistent"],
-      "@stylistic/indent": ["error", 2],
-      "@stylistic/object-property-newline": "off",
-      "@stylistic/padded-blocks": ["error", "never"],
-      "@stylistic/quote-props": ["error", "as-needed"],
       "func-style": "off",
       "import-x/no-unresolved": ["error", {ignore: ["eslint/config"]}],
       "init-declarations": "off",
@@ -39,7 +32,14 @@ export default defineConfig([
       "no-ternary": "off",
       "one-var": ["error", "never"],
       "prefer-destructuring": "off",
-      "sort-keys": "off"
+      "sort-keys": "off",
+      "stylistic/array-element-newline": ["error", "consistent"],
+      "stylistic/dot-location": ["error", "property"],
+      "stylistic/function-call-argument-newline": ["error", "consistent"],
+      "stylistic/indent": ["error", 2],
+      "stylistic/object-property-newline": "off",
+      "stylistic/padded-blocks": ["error", "never"],
+      "stylistic/quote-props": ["error", "as-needed"]
     }
   },
   {files: ["demo.config.js"], rules: {"no-inline-comments": "off", "no-undef": "off", "prefer-const": "off"}},

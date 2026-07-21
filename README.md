@@ -304,6 +304,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 ### Developer commands
 
 - `npm install` — install development dependencies.
+- `node --run demo` — run a demo MagicMirror² instance with the module loaded.
 - `node --run lint` — run linting and formatting checks.
 - `node --run lint:fix` — auto-fix lint and formatting issues.
 - `node --run test` — lint + format + spelling.

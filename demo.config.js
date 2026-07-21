@@ -25,6 +25,16 @@ let config = {
         showSunTimes: true
       }
     },
+    {
+      module: "compliments",
+      position: "lower_third",
+      config: {
+        compliments: {
+          anytime: ["⌨️\ng: greeting\ns: stop\nt: time"]
+        },
+        updateInterval: 1000000
+      }
+    },
 
     /*
      * Main Text-to-Speech service module

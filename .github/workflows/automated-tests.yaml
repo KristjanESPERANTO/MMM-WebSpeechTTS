@@ -9,21 +9,16 @@ permissions:
   contents: read
 
 jobs:
-  run-lint:
+  test:
     runs-on: ubuntu-slim
     timeout-minutes: 10
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v7
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: Use Node.js
-        uses: actions/setup-node@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
         with:
-          node-version: lts/*
+          node-version: latest
           cache: npm
       - name: Install dependencies
         run: npm ci
@@ -31,4 +26,3 @@ jobs:
         run: node --run test:spelling
       - name: Check linting
         run: node --run lint
-      - run: echo "🍏 This job's status is ${{ job.status }}."

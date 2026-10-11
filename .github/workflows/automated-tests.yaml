@@ -26,3 +26,5 @@ jobs:
         run: node --run test:spelling
       - name: Check linting
         run: node --run lint
+      - name: Run unit tests
+        run: node --run test:unit

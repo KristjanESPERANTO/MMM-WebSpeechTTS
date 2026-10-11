@@ -18,6 +18,7 @@ const loadModule = (moduleConfig = {}, mirrorConfig = {}) => {
         definition = moduleDefinition;
       }
     },
+    document: {createElement: () => ({style: {}})},
     window: {}
   };
   runInNewContext(moduleSource, context);
@@ -93,6 +94,16 @@ test("job normalization applies service defaults and generates an id", () => {
   assert.equal(job.pitch, 0.8);
   assert.equal(job.volume, 0.7);
   assert.equal(job.source, "notification");
+});
+
+test("visible speech text is rendered as text, not HTML", () => {
+  const module = loadModule({hidden: false});
+  const speechText = "<img src=x onerror=alert(1)>";
+  module.displayText = speechText;
+
+  const wrapper = module.getDom();
+
+  assert.equal(wrapper.textContent, speechText);
 });
 
 test("service processes queued speech in FIFO order", () => {

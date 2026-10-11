@@ -66,7 +66,7 @@ Module.register("MMM-WebSpeechTTS", {
       wrapper.style.visibility = "hidden";
     } else {
       wrapper.id = "mmm-webspeechtts";
-      wrapper.innerHTML = this.displayText;
+      wrapper.textContent = this.displayText;
     }
     return wrapper;
   },

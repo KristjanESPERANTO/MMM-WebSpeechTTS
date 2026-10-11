@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.1.3](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.1.2...v0.1.3) (2026-10-11)
+
+### Fixed
+
+* **keyboard:** ignore shortcuts during input ([267f49a](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/267f49ac756291236a4f2b53eeafef12b3a57120))
+* **tts:** ignore stale speech events ([b4c2b07](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/b4c2b075408db8fbe8e139f18bf720db12a07a06))
+* **tts:** render speech text safely ([7abd138](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/7abd138786edc358432e4bc0049883e0c416532f))
+
+### Documentation
+
+* **readme:** add custom producer example ([0cb347b](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/0cb347b8acefc55ffeca3d72c730c9572debf606))
+* **readme:** prioritize roadmap items ([b6301d8](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/b6301d86c2a5b3bd988d6be899f96df36d7330d3))
+
+### Chores
+
+* update automated tests workflow ([1a9667c](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/1a9667c339c73a8368db55771106812f74a2f230))
+* update devDependencies ([904fbf2](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/904fbf2e0641bc610e5e3fd853d24b4db3507f65))
+
+### Tests
+
+* add unit tests and CI check ([e53c949](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/commit/e53c9492237edabd8699ae78b606d339c1486aab))
+
 ## [0.1.2](https://github.com/KristjanESPERANTO/MMM-WebSpeechTTS/compare/v0.1.1...v0.1.2) (2026-07-21)
 
 ### Documentation

@@ -43,8 +43,8 @@ const loadService = () => {
       this.listeners[eventName] = callback;
     }
 
-    dispatch (eventName) {
-      this.listeners[eventName]();
+    dispatch (eventName, event = {}) {
+      this.listeners[eventName](event);
     }
   }
   const context = {
@@ -121,4 +121,19 @@ test("stopping the active job starts the next queued job", () => {
   assert.equal(endedJobs[0].reason, "cancelled");
   assert.equal(utterances.length, 2);
   assert.equal(utterances[1].text, "Next");
+});
+
+test("late events from stopped speech do not finish the next job", () => {
+  const {endedJobs, service, utterances} = loadService();
+
+  service.enqueue({id: "active", text: "Active"});
+  service.enqueue({id: "next", text: "Next"});
+  service.stop("active");
+  utterances[0].dispatch("error", {error: "interrupted"});
+
+  assert.equal(service.currentJob.id, "next");
+  assert.equal(endedJobs.length, 1);
+  utterances[1].dispatch("end");
+  assert.equal(endedJobs[1].id, "next");
+  assert.equal(endedJobs[1].reason, "completed");
 });

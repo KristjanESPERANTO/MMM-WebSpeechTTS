@@ -175,26 +175,36 @@
         utterance.voice = selectedVoice;
       }
 
-      this.currentJob = {
+      const activeJob = {
         ...job,
         utterance,
         reason: "completed",
         error: null
       };
+      this.currentJob = activeJob;
 
       utterance.addEventListener("start", () => {
+        if (this.currentJob !== activeJob) {
+          return;
+        }
         if (this.callbacks.onStart) {
-          this.callbacks.onStart({...this.currentJob});
+          this.callbacks.onStart({...activeJob});
         }
       });
 
       utterance.addEventListener("end", () => {
-        const reason = this.currentJob?.reason ?? "completed";
-        const error = this.currentJob?.error ?? null;
+        if (this.currentJob !== activeJob) {
+          return;
+        }
+        const reason = activeJob.reason ?? "completed";
+        const error = activeJob.error ?? null;
         this.finishCurrentJob(reason, error);
       });
 
       utterance.addEventListener("error", (event) => {
+        if (this.currentJob !== activeJob) {
+          return;
+        }
         const message = event.error || event.message || "Speech synthesis error";
         this.finishCurrentJob("error", message);
       });

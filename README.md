@@ -225,6 +225,28 @@ Send notifications from any module to control the speech queue:
 
 > **Legacy:** The old `WebSpeechTTS` notification still works but logs a warning. Please migrate to `WEB_SPEECH_TTS_SAY`.
 
+### Example: custom reminder producer
+
+A custom module can forward its own notifications to the speech queue. This example assumes a reminder module sends `REMINDER_DUE` with a `{text}` payload:
+
+```js
+Module.register("MMM-ReminderSpeech", {
+  notificationReceived(notification, payload) {
+    if (
+      notification !== "REMINDER_DUE" ||
+      typeof payload?.text !== "string" ||
+      payload.text.trim() === ""
+    ) {
+      return;
+    }
+
+    this.sendNotification("WEB_SPEECH_TTS_SAY", {
+      text: `Reminder: ${payload.text.trim()}`
+    });
+  }
+});
+```
+
 ### Using the browser helper
 
 The module exposes a small helper on the MagicMirror browser window:

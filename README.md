@@ -300,18 +300,21 @@ git pull
 
 ## ToDo/Ideas
 
-- Add producer for all core MM modules (e.g., weather, news, calendar).
-- Add producer to announce when a new module is loaded.
-- Add practical examples for custom producers.
-- Add practical examples for use cases.
-  - Announcing important events (e.g., reminders, alarms).
-  - Providing real-time updates (e.g., weather, news).
-  - Announcing notifications (e.g., emails, messages).
-  - Read news headlines aloud on GPIO button press.
-  - ... your idea here!
-- Mention in MMM-Public-TransportHafas that TTS is possible with this module
-- Expand translations beyond English and German.
-- Document additional producer examples (sensors, calendar, reminders).
+### Reliability and tests
+
+- Validate per-job `rate`, `pitch`, and `volume` overrides against supported ranges.
+- Add service tests for voice loading and selection, plus environments without the Web Speech API.
+
+### Producer integrations
+
+- Start with an opt-in calendar announcement producer; define duplicate suppression and announcement timing.
+- Evaluate weather and news producers separately, with explicit user-controlled triggers.
+- Document the TTS integration in MMM-PublicTransportHafas.
+
+### Translations
+
+- Add further languages when community members can maintain the translations.
+- Document how contributors can add and verify translation files.
 
 ## Contributing
 

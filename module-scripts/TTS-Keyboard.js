@@ -11,6 +11,20 @@
     return fallback;
   };
 
+  const isEditableTarget = (target) => {
+    if (!target) {
+      return false;
+    }
+    if (target.isContentEditable) {
+      return true;
+    }
+
+    const tagName = typeof target.tagName === "string"
+      ? target.tagName.toLowerCase()
+      : "";
+    return ["input", "textarea", "select"].includes(tagName);
+  };
+
   const handleGreeting = (api) => {
     const text = helpers.getGreetingString();
     api.say({text, source: "keyboard-greeting"});
@@ -39,7 +53,7 @@
     };
 
     document.addEventListener("keydown", (event) => {
-      if (event.defaultPrevented) {
+      if (event.defaultPrevented || event.ctrlKey || event.altKey || event.metaKey || event.shiftKey || event.isComposing || isEditableTarget(event.target)) {
         return;
       }
 

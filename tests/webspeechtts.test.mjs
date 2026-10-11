@@ -5,6 +5,7 @@ import test from "node:test";
 
 const moduleSource = readFileSync(new URL("../MMM-WebSpeechTTS.js", import.meta.url), "utf8");
 const serviceSource = readFileSync(new URL("../module-scripts/TTS.js", import.meta.url), "utf8");
+const keyboardSource = readFileSync(new URL("../module-scripts/TTS-Keyboard.js", import.meta.url), "utf8");
 
 const toPlainObject = (value) => JSON.parse(JSON.stringify(value));
 
@@ -59,6 +60,31 @@ const loadService = () => {
   return {endedJobs, service, utterances};
 };
 
+const loadKeyboardProducer = () => {
+  const actions = [];
+  let keydownHandler;
+  const api = {
+    say: (payload) => actions.push(payload),
+    stop: () => actions.push("stop")
+  };
+  const helpers = {
+    getGreetingString: () => "Greeting",
+    getProducerConfig: () => ({enabled: true}),
+    getTimeAnnouncementString: () => "Time",
+    onReady: (callback) => callback(api)
+  };
+  const context = {
+    document: {
+      addEventListener: (_eventName, callback) => {
+        keydownHandler = callback;
+      }
+    },
+    window: {MMMWebSpeechTtsHelpers: helpers}
+  };
+  runInNewContext(keyboardSource, context);
+  return {actions, keydownHandler};
+};
+
 test("service config resolves language and clamps numeric options", () => {
   const module = loadModule({speechRate: 20, speechPitch: -1, speechVolume: 2}, {locale: " de-DE "});
 
@@ -104,6 +130,38 @@ test("visible speech text is rendered as text, not HTML", () => {
   const wrapper = module.getDom();
 
   assert.equal(wrapper.textContent, speechText);
+});
+
+test("keyboard shortcuts ignore editable targets", () => {
+  const {actions, keydownHandler} = loadKeyboardProducer();
+
+  for (const tagName of ["INPUT", "TEXTAREA", "SELECT"]) {
+    keydownHandler({key: "g", target: {tagName}});
+  }
+  keydownHandler({key: "g", target: {isContentEditable: true}});
+
+  assert.equal(actions.length, 0);
+});
+
+test("keyboard shortcuts ignore modifiers, handled events, and IME input", () => {
+  const {actions, keydownHandler} = loadKeyboardProducer();
+
+  for (const modifier of ["ctrlKey", "altKey", "metaKey", "shiftKey"]) {
+    keydownHandler({key: "g", [modifier]: true});
+  }
+  keydownHandler({key: "g", defaultPrevented: true});
+  keydownHandler({key: "g", isComposing: true});
+
+  assert.equal(actions.length, 0);
+});
+
+test("keyboard shortcuts still run outside editable contexts", () => {
+  const {actions, keydownHandler} = loadKeyboardProducer();
+
+  keydownHandler({key: "g", target: {tagName: "BODY"}});
+
+  assert.equal(actions.length, 1);
+  assert.equal(actions[0].text, "Greeting");
 });
 
 test("service processes queued speech in FIFO order", () => {
